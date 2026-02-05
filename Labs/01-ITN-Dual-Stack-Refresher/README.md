@@ -14,8 +14,7 @@ To configure a dual-stack network (IPv4/IPv6) with inter-subnet communication wh
 * **Tools:** Cisco Packet Tracer.
 
 ### 📸 Topology
-![Topology Screenshot](Link_to_your_image.png)
-*(Note: After you upload the image, you can click "Raw" on the image file to get the link to paste here)*
+![Topology Screenshot](topology.jpg)
 
 ### 🚀 Implementation Highlights
 * **Challenge:** The router initially dropped IPv6 packets between subnets.
