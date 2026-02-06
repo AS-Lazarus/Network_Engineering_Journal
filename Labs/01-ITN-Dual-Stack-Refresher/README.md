@@ -20,3 +20,6 @@ To configure a dual-stack network (IPv4/IPv6) with inter-subnet communication wh
 * **Challenge:** The router initially dropped IPv6 packets between subnets.
 * **Solution:** Diagnosed missing `ipv6 unicast-routing` command. Enabled it to restore Layer 3 forwarding.
 * **Verification:** Successful pings between PC-A and PC-B across both protocol stacks.
+
+### 📸 Verification 
+![Verification Screenshot](https://github.com/AS-Lazarus/Network_Engineering_Journal/blob/main/Labs/verification.jpg)
