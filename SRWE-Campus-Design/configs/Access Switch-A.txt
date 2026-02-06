@@ -1,0 +1,204 @@
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname ACC_SW__A
+!
+enable secret 5 $1$mERr$wuaUudz6InjWEYfZae1C11
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Port-channel1
+ description TO DISTR_SW
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,999
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,999
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,999
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface FastEthernet0/3
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/4
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/5
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/6
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/7
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/8
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/9
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/10
+ description TO ACCESS_ADMIN
+ switchport access vlan 10
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 00C0.977E.4387
+!
+interface FastEthernet0/11
+ description TO ACCESS_SALES
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/12
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/13
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/14
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/15
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/16
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/17
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/18
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/19
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/20
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/21
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/22
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/23
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface FastEthernet0/24
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet0/1
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet0/2
+ description UNUSED PORTS
+ switchport access vlan 550
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+banner motd ^CUNAUTHORIZED ACCESS PROHIBITED^C
+!
+!
+!
+line con 0
+ password Peju501
+ login
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
