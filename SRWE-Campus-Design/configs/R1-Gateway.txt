@@ -1,1 +1,102 @@
+version 16.6.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname GATEWAY
+!
+!
+!
+enable secret 5 $1$mERr$wuaUudz6InjWEYfZae1C11
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/1
+ description TO DISTR_SW
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1.10
+ description GATEWAY FOR VLAN 10
+ encapsulation dot1Q 10
+ ip address 10.1.10.1 255.255.255.0
+!
+interface GigabitEthernet0/0/1.20
+ description GATEWAY FOR VLAN 20
+ encapsulation dot1Q 20
+ ip address 10.1.20.1 255.255.255.0
+!
+interface GigabitEthernet0/0/1.30
+ description GATEWAY FOR VLAN 30
+ encapsulation dot1Q 30
+ ip address 10.1.30.1 255.255.255.0
+!
+interface GigabitEthernet0/0/1.999
+ encapsulation dot1Q 999 native
+ no ip address
+!
+interface GigabitEthernet0/0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CUNAUTHORIZED ACCESS PROHIBITED^C
+!
+!
+!
+!
+line con 0
+ password 7 081149441C4C5546
+ login
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
 
