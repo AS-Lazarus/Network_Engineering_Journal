@@ -8,13 +8,14 @@
 To configure a dual-stack network (IPv4/IPv6) with inter-subnet communication while securing the network devices against unauthorized access.
 
 
-### 📊 IP Addressing Plan (VLSM)
+### 📊 IP Addressing Plan
+**IPv6 Configuration  (VLSM):**
 **Base Network:** `172.16.0.0/24`
 
 | Subnet | Description | CIDR | Network Address | Gateway (R1) | Host Range | Broadcast |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **A** | Left LAN (100 Hosts) | `/25` | `172.16.0.0` | `172.16.0.1` | `.2` - `.126` | `.127` |
-| **B** | Right LAN (50 Hosts) | `/26` | `172.16.0.128` | `172.16.0.129` | `.130` - `.190` | `.191` |
+| **A** | Left LAN (100 Hosts) | `/25` | `172.16.0.0` | `172.16.0.1` | `172.16.0.2` - `.126` | `172.16.0.127` |
+| **B** | Right LAN (50 Hosts) | `/26` | `172.16.0.128` | `172.16.0.129` | `172.16.0.130` - `172.16.0.190` | `172.16.0.191` |
 
 **IPv6 Configuration:**
 * **Global Prefix:** `2001:db8:acad::/48`
