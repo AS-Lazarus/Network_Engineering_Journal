@@ -18,7 +18,8 @@ To build a highly available, dual-stack enterprise network capable of surviving 
 ### Configuration Highlights
 
 **1. HSRP Dual-Stack Routing (R1-Active)**
-```cisco
+
+```
 interface GigabitEthernet0/0/0
  ip address 10.1.10.2 255.255.255.0
  ipv6 address FE80::2 link-local
@@ -33,8 +34,8 @@ interface GigabitEthernet0/0/0
 
 ```
 
+**2. LAN Security & STP Tuning (S1-Core & S2-Access) **
 
-***2. LAN Security & STP Tuning (S1-Core & S2-Access)
 ```
 ! ORE_SW: Root Bridge & DHCP Trust
 spanning-tree vlan 1 root primary
@@ -46,5 +47,5 @@ interface range f0/1 - 2
 interface range f0/10 - 20
  spanning-tree portfast
  spanning-tree bpduguard enable
-```
 
+```
