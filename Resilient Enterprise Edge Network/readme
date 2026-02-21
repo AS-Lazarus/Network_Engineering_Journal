@@ -1,7 +1,7 @@
 # Lab 03: Resilient Enterprise Edge Network
 
 **Status:** Completed  
-**Focus:** High Availability, Advanced LAN Security, and Wireless (CCNA SRWE)
+**Focus:** High Availability, Advanced LAN Security and Wireless (CCNA SRWE)
 
 ### Objective
 To build a highly available, dual-stack enterprise network capable of surviving hardware failures while securing the edge against rogue attacks.
@@ -30,6 +30,7 @@ interface GigabitEthernet0/0/0
  standby 11 ipv6 autoconfig
  standby 11 priority 110
  standby 11 preempt
+
 ```
 
 
