@@ -1,0 +1,49 @@
+# Lab 03: Resilient Enterprise Edge Network
+
+**Status:** Completed  
+**Focus:** High Availability, Advanced LAN Security, and Wireless (CCNA SRWE)
+
+### Objective
+To build a highly available, dual-stack enterprise network capable of surviving hardware failures while securing the edge against rogue attacks.
+
+### Key Technologies Implemented
+* **HSRP (First Hop Redundancy Protocol):** Active/Standby gateway failover for both IPv4 and IPv6.
+* **Rapid PVST+:** Spanning Tree tuning with deterministic Primary/Secondary Root Bridges.
+* **LAN Security:** DHCP Snooping, PortFast, and BPDU Guard to protect the Layer 2 edge.
+* **Centralized Wireless:** WLC (Wireless LAN Controller) and LAP deployment utilizing WPA2-PSK.
+* **Dual-Stack Edge:** Simultaneous IPv4 DHCP and IPv6 SLAAC configuration.
+
+---
+
+### Configuration Highlights
+
+**1. HSRP Dual-Stack Routing (R1-Active)**
+```cisco
+interface GigabitEthernet0/0/0
+ ip address 10.1.10.2 255.255.255.0
+ ipv6 address FE80::2 link-local
+ ipv6 address 2001:DB8:ACAD:10::2/64
+ standby version 2
+ standby 10 ip 10.1.10.1
+ standby 10 priority 110
+ standby 10 preempt
+ standby 11 ipv6 autoconfig
+ standby 11 priority 110
+ standby 11 preempt
+```
+
+
+***2. LAN Security & STP Tuning (S1-Core & S2-Access)
+```
+! ORE_SW: Root Bridge & DHCP Trust
+spanning-tree vlan 1 root primary
+ip dhcp snooping
+interface range f0/1 - 2
+ ip dhcp snooping trust
+
+! ACC_SW: Edge Protection
+interface range f0/10 - 20
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+```
+
